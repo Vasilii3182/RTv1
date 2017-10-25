@@ -1,0 +1,43 @@
+<!-- *********************************************************************** -->
+<!--                                                                         -->
+<!--                                                      :::      ::::::::  -->
+<!-- test.xml                                           :+:      :+:    :+:  -->
+<!--                                                  +:+ +:+         +:+    -->
+<!-- By: ofranco <marvin@42.fr>                     +#+  +:+       +#+       -->
+<!--                                              +#+#+#+#+#+   +#+          -->
+<!-- Created: 2017/10/25 19:58:15 by ofranco           #+#    #+#            -->
+<!-- Updated: 2017/10/25 21:37:18 by ofranco          ###   ########.fr      -->
+<!--                                                                         -->
+<!-- *********************************************************************** -->
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<scene>
+	<camera>
+		<position>position de la camera</position>
+		<orientation>orientation de la camera</orientation>
+	</camera>
+	<lights>
+		<spot>
+			<position>position du spot</position>
+			<orientation>orientation du spot</orientation>
+		</spot>
+		<spot>
+			<position>position du 2eme spot</position>
+			<orientation>orientation du deuxieme spot</orientation>
+		</spot>
+	</lights>
+	<objects>
+		<sphere>
+			<center>centre de la sphere</center>
+			<radius>rayon du cercle</radius>
+			<color>couleur:0xFFFFFF</color>
+		</sphere>
+		<plan>
+			<normale>normale du plan ?</normale>
+			<color>couleur du plan</color>
+			<texture>texture du plan?</texture>
+		</plan>
+		<cone></cone>
+		<cylinder></cylinder>
+	</objects>
+</scene>
