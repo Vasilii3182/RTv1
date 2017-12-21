@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_nb_filelines.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ofranco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 10:08:31 by ofranco           #+#    #+#             */
-/*   Updated: 2017/12/19 17:22:09 by ofranco          ###   ########.fr       */
+/*   Created: 2017/12/19 13:57:15 by ofranco           #+#    #+#             */
+/*   Updated: 2017/12/19 17:23:31 by ofranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-int	main(int argc, char **argv)
+int	get_file_nblines(char *filename)
 {
-	t_mlx	*mlx;
+	int		fd;
+	int		nb;
+	int		ret;
+	char	*buffer;
 
-	if (argc != 2)
+	if ((fd = open(filename, O_RDONLY, S_IREAD)) == -1)
+		return (fd);
+	nb = 0;
+	while ((ret =get_next_line(fd, &buffer)) != 0)
 	{
-		ft_putstr("Usage: ./rtv1 [filename]\n")
-		return (0);
+		if (ret < 0)
+			return (-1);
+		nb++;		
 	}
-	if ((mlx = initialize()) == NULL)
-	{
-		ft_putstr("Window creation failed.Exiting.\n");
-		return (-1);
-	}
-	if ((mlx->scene = parsing_file(argv[1]), mlx->scene) == NULL)
-		mlx_free(mlx);
-	if ((mlx->image = new_image(mlx)) == NULL)
-		mlx_free(mlx);
-	raytracing(mlx);
-	mlx_loop(mlx->mlx);
-	return (0);
+	close(fd);
+	return (nb);
 }

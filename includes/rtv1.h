@@ -6,7 +6,7 @@
 /*   By: ofranco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 21:39:53 by ofranco           #+#    #+#             */
-/*   Updated: 2017/12/18 10:40:11 by ofranco          ###   ########.fr       */
+/*   Updated: 2017/12/19 14:15:55 by ofranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef	struct	s_cone	{
 
 }				t_cone;
 
-typedef	struct	s_spot
+typedef	struct	s_spot	{
 
 	t_point		pos;
 	int			color;
@@ -91,5 +91,7 @@ typedef	struct	s_mlx {
 	t_image		*image;
 
 }				t_mlx;
+
+int	get_file_nblines(char *filename);
 
 #endif
