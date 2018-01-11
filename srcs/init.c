@@ -6,7 +6,7 @@
 /*   By: ofranco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 10:12:11 by ofranco           #+#    #+#             */
-/*   Updated: 2017/12/19 13:53:25 by ofranco          ###   ########.fr       */
+/*   Updated: 2018/01/09 16:40:11 by ofranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_scene	*scene_init(void)
 	scene->spheres == NULL;
 	scene->cones == NULL;
 	scene->planes == NULL;
-	scene->spot == NULL;
+	scene->spots == NULL;
+	scene_cylinders == NULL;
 	return (scene);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ofranco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 21:39:53 by ofranco           #+#    #+#             */
-/*   Updated: 2017/12/19 14:15:55 by ofranco          ###   ########.fr       */
+/*   Updated: 2018/01/11 13:19:21 by ofranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,37 +30,53 @@ typedef struct	s_point {
 typedef struct	s_sphere {
 
 	double		radius;
-	t_point		center;
+	t_point		*center;
 	int			color;
-	void		*next;
+	struct s_sphere		*next;
 
 }				t_sphere;
 
 typedef	struct	s_plane	{
 
-	t_point		pos;
+	t_point		*pos;
 	double		dist;
 	int			color;
-	void		*next;
+	struct s_plane		*next;
 
 }				t_plane;
 
 typedef	struct	s_cone	{
 
-	t_point		center;
+	t_point		*center;
 	double		open;
 	int			color;
-	void		*next;
+	struct s_cone		*next;
 
 }				t_cone;
 
 typedef	struct	s_spot	{
 
-	t_point		pos;
+	t_point		*pos;
 	int			color;
-	void		*next;
+	struct s_spot		*next;
 
 }				t_spot;
+
+typedef	struct	s_cylinder	{
+
+	t_point		*center;
+	double		radius;
+	int			color;
+	struct s_cylinder	*next;
+
+}				t_cylinder;
+
+typedef	struct	s_cam	{
+
+	t_point		*cam_pos;
+	t_point		*cam_dir;
+
+}				t_cam;
 
 typedef struct	s_image {
 
@@ -74,12 +90,12 @@ typedef struct	s_image {
 
 typedef	struct	s_scene {
 
-	t_point		cam_pos;
-	t_point		cam_dir;
+	t_cam		*camera;
 	t_sphere	*spheres;
 	t_cone		*cones;
 	t_plane		*planes;
 	t_spot		*spots;
+	t_cylinder	*cylinders;
 	
 }				t_scene;
 
